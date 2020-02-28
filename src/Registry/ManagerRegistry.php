@@ -1,26 +1,29 @@
 <?php
 
+/**
+ * @copyright Copyright (c) 2016 bushbaby multimedia. (https://bushbaby.nl)
+ * @author    Bas Kamer <baskamer@gmail.com>
+ * @license   MIT
+ */
+
+declare(strict_types=1);
+
 namespace BsbDoctrineRegistry\Registry;
 
 use Doctrine\Common\Persistence\AbstractManagerRegistry;
 use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\ObjectManager;
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\ServiceManager;
 
-/**
- * Class ManagerRegistry
- */
 class ManagerRegistry extends AbstractManagerRegistry
 {
     /**
-     * @var ServiceManager
+     * @var ContainerInterface
      */
     private $serviceManager;
 
     /**
-     * @inheritdoc
-     *
-     * @param ServiceManager $container
+     * {@inheritdoc}
      */
     public function __construct(
         $name,
@@ -29,17 +32,17 @@ class ManagerRegistry extends AbstractManagerRegistry
         $defaultConnection,
         $defaultManager,
         $proxyInterfaceName,
-        ServiceManager $serviceManager
+        ContainerInterface $container
     ) {
         parent::__construct($name, $connections, $managers, $defaultConnection, $defaultManager, $proxyInterfaceName);
 
-        $this->serviceManager = $serviceManager;
+        $this->serviceManager = $container;
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getService($name)
+    protected function getService($name): ObjectManager
     {
         return $this->serviceManager->get($name);
     }
@@ -47,7 +50,7 @@ class ManagerRegistry extends AbstractManagerRegistry
     /**
      * {@inheritdoc}
      */
-    protected function resetService($name)
+    protected function resetService($name): void
     {
         $this->serviceManager->setService($name, null);
     }
@@ -55,9 +58,9 @@ class ManagerRegistry extends AbstractManagerRegistry
     /**
      * {@inheritdoc}
      */
-    public function getAliasNamespace($alias)
+    public function getAliasNamespace($alias): string
     {
-        foreach (array_keys($this->getManagers()) as $name) {
+        foreach (\array_keys($this->getManagers()) as $name) {
             try {
                 return $this->getManager($name)->getConfiguration()->getEntityNamespace($alias);
             } catch (ORMException $e) {

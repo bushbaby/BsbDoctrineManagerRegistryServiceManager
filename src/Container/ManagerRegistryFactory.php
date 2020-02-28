@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * @copyright Copyright (c) 2016 bushbaby multimedia. (https://bushbaby.nl)
+ * @author    Bas Kamer <baskamer@gmail.com>
+ * @license   MIT
+ */
+
+declare(strict_types=1);
+
 namespace BsbDoctrineRegistry\Container;
 
 use BsbDoctrineRegistry\Registry\ManagerRegistry;
 use Interop\Container\ContainerInterface;
 
-/**
- * Class ManagerRegistryFactory
- */
 class ManagerRegistryFactory
 {
     public function __invoke(ContainerInterface $container)
@@ -27,11 +32,7 @@ class ManagerRegistryFactory
         return $registry;
     }
 
-    /**
-     * @param array $options
-     * @return array
-     */
-    private function getEntityManagers(array $options)
+    private function getEntityManagers(array $options): array
     {
         $entityManagers = [];
         foreach ($options as $key => $entityManager) {
@@ -41,11 +42,7 @@ class ManagerRegistryFactory
         return $entityManagers;
     }
 
-    /**
-     * @param array $options
-     * @return array
-     */
-    private function getConnections(array $options)
+    private function getConnections(array $options): array
     {
         $connections = [];
         foreach ($options as $key => $connection) {

@@ -1,27 +1,29 @@
 
-# ZF2 ServiceManager Doctrine's ManagerRegistry
+# Laminas ServiceManager Doctrine's ManagerRegistry
 
-An implementation Doctrine's ManagerRegistry for zend-servicemanager.
+An implementation Doctrine's ManagerRegistry for laminas/laminas-servicemanager.
 
-Install
+##### Install
 
-```
+```bash
 composer require "bushbaby/doctrine-managerregistry-servicemanager"
 ```
 
 Register ManagerRegistryFactory in the service manager.
 
-```
-[
-	'factories' => [
-		Doctrine\Common\Persistence\ManagerRegistry::class  => BsbDoctrineRegistry\Container\ManagerRegistryFactory::class,
-	],
-]
+```php
+return [
+    'dependencies' => [
+        'factories' => [
+            \Doctrine\Common\Persistence\ManagerRegistry::class  => BsbDoctrineRegistry\Container\ManagerRegistryFactory::class,
+        ],
+    ],
+];
 ```
 
-Usage
+##### Usage
 
-```
+```php
 $managerName = 'orm_default';
 
 /** @var \Doctrine\Common\Persistence\ManagerRegistry $managerRegistry */

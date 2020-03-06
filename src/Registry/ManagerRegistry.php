@@ -12,7 +12,6 @@ namespace BsbDoctrineRegistry\Registry;
 
 use Doctrine\Common\Persistence\AbstractManagerRegistry;
 use Doctrine\ORM\ORMException;
-use Doctrine\Persistence\ObjectManager;
 use Interop\Container\ContainerInterface;
 
 class ManagerRegistry extends AbstractManagerRegistry
@@ -42,7 +41,7 @@ class ManagerRegistry extends AbstractManagerRegistry
     /**
      * {@inheritdoc}
      */
-    protected function getService($name): ObjectManager
+    protected function getService($name)
     {
         return $this->serviceManager->get($name);
     }

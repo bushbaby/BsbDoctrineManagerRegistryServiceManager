@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace BsbDoctrineRegistry\Registry;
 
-use Doctrine\Persistence\AbstractManagerRegistry;
 use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\AbstractManagerRegistry;
 use Interop\Container\ContainerInterface;
 
 class ManagerRegistry extends AbstractManagerRegistry
@@ -22,7 +22,7 @@ class ManagerRegistry extends AbstractManagerRegistry
     private $serviceManager;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function __construct(
         $name,
@@ -39,7 +39,7 @@ class ManagerRegistry extends AbstractManagerRegistry
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function getService($name)
     {
@@ -47,7 +47,7 @@ class ManagerRegistry extends AbstractManagerRegistry
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function resetService($name): void
     {
@@ -55,11 +55,11 @@ class ManagerRegistry extends AbstractManagerRegistry
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getAliasNamespace($alias): string
     {
-        foreach (\array_keys($this->getManagers()) as $name) {
+        foreach (array_keys($this->getManagers()) as $name) {
             try {
                 return $this->getManager($name)->getConfiguration()->getEntityNamespace($alias);
             } catch (ORMException $e) {

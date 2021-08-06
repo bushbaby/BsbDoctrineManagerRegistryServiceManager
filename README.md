@@ -15,7 +15,7 @@ Register ManagerRegistryFactory in the service manager.
 return [
     'dependencies' => [
         'factories' => [
-            \Doctrine\Common\Persistence\ManagerRegistry::class  => BsbDoctrineRegistry\Container\ManagerRegistryFactory::class,
+            \Doctrine\Persistence\ManagerRegistry::class  => BsbDoctrineRegistry\Container\ManagerRegistryFactory::class,
         ],
     ],
 ];
@@ -26,8 +26,8 @@ return [
 ```php
 $managerName = 'orm_default';
 
-/** @var \Doctrine\Common\Persistence\ManagerRegistry $managerRegistry */
-$managerRegistry = $container->get(\Doctrine\Common\Persistence\ManagerRegistry::class);
+/** @var \Doctrine\Persistence\ManagerRegistry $managerRegistry */
+$managerRegistry = $container->get(\Doctrine\Persistence\ManagerRegistry::class);
 
 /** @var ObjectManager $objectManager */
 $objectManager = $managerRegistry->getManager($managerName);

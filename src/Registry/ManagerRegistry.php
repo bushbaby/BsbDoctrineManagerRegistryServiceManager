@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace BsbDoctrineRegistry\Registry;
 
-use Doctrine\Common\Persistence\AbstractManagerRegistry;
+use Doctrine\Persistence\AbstractManagerRegistry;
 use Doctrine\ORM\ORMException;
 use Interop\Container\ContainerInterface;
 

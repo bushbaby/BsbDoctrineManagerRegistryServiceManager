@@ -7,7 +7,7 @@
     "doctrine/orm": "^2.4"
   },
   "require-dev": {
-    "bushbaby/php-cs-fixer-config": "^1.0",
+    "bushbaby/php-cs-fixer-config": "^2.0",
     "phpunit/phpunit": "^8.5",
     "php-coveralls/php-coveralls": "^2.0"
   },

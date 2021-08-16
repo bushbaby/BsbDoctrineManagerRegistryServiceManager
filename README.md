@@ -1,9 +1,9 @@
 
 # Laminas ServiceManager Doctrine's ManagerRegistry
 
-An implementation Doctrine's ManagerRegistry for laminas/laminas-servicemanager.
-
 [![Build Status](https://travis-ci.com/bushbaby/BsbDoctrineManagerRegistryServiceManager.svg?branch=master)](https://travis-ci.com/bushbaby/BsbDoctrineManagerRegistryServiceManager)
+
+An implementation Doctrine's ManagerRegistry for laminas/laminas-servicemanager.
 
 ##### Install
 

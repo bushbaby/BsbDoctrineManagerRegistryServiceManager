@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.com/bushbaby/BsbDoctrineManagerRegistryServiceManager.svg?branch=master)](https://travis-ci.com/bushbaby/BsbDoctrineManagerRegistryServiceManager)
 
-An implementation Doctrine's ManagerRegistry for laminas/laminas-servicemanager.
+An implementation of Doctrine's ManagerRegistry (from doctrine/orm) for laminas/laminas-servicemanager.
 
 ##### Install
 
@@ -11,7 +11,7 @@ An implementation Doctrine's ManagerRegistry for laminas/laminas-servicemanager.
 composer require "bushbaby/doctrine-managerregistry-servicemanager"
 ```
 
-Register ManagerRegistryFactory in the service manager.
+Register ManagerRegistryFactory in your service manager.
 
 ```php
 return [

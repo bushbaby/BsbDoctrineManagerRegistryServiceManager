@@ -2,9 +2,9 @@
   "name": "bushbaby/doctrine-managerregistry-servicemanager",
   "description": "An implementation of Doctrine's ManagerRegistry for the Laminas ServiceManager",
   "require": {
-    "php": "^7.2",
-    "laminas/laminas-servicemanager": "^3.0",
-    "doctrine/orm": "^2.4"
+    "php": "^7.3 | ^8.0",
+    "laminas/laminas-servicemanager": "^3.6",
+    "doctrine/orm": "^2.8"
   },
   "require-dev": {
     "bushbaby/php-cs-fixer-config": "^2.0",
